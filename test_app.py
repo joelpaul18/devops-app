@@ -29,3 +29,12 @@ def test_version():
     response = client.get("/version")
     assert response.status_code == 200
     assert response.json == {"version": "1.0.0"}
+
+def test_contact():
+    client = app.test_client()
+    response = client.get("/contact")
+    assert response.status_code == 200
+    assert response.json == {
+        "email": "joelpaul@gmail.com",
+        "team": "DevOps Team"
+    }
